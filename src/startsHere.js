@@ -6,7 +6,8 @@
     var Engine = Matter.Engine,
         Render = Matter.Render,
         World = Matter.World,
-        Bodies = Matter.Bodies;
+        Bodies = Matter.Bodies,
+        Body = Matter.Body;
 
 //create an engine
     var engine = Engine.create();
@@ -37,4 +38,15 @@
 //run render
     Render.run(render);
 
+    var canvas = document.querySelector('canvas');
+    canvas.addEventListener('click', function(){
+
+        World.add(engine.world , [Bodies.rectangle(450, 50, 80, 80), ground]);
+        // var position = boxB.position;
+        // var force = {
+        //     x : 0,
+        //     y : 1
+        // };
+        // Body.applyForce( boxB , position, force);
+    })
 })();
