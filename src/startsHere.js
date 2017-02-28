@@ -24,8 +24,8 @@
     });
 
 //create a box and a ground
-    var boxA = Bodies.rectangle(400,200,80,80);
-    var boxB = Bodies.rectangle(450, 50, 80, 80);
+    var boxA = Bodies.rectangle(400,200,40,40);
+    var boxB = Bodies.rectangle(450, 50, 40, 40);
 
     var ground = Bodies.rectangle(400,910,810,60,{ isStatic : true});
 
@@ -38,10 +38,14 @@
 //run render
     Render.run(render);
 
+    var i=0;
     var canvas = document.querySelector('canvas');
-    canvas.addEventListener('click', function(){
+    canvas.addEventListener('mousedown', function(){
 
-        World.add(engine.world , [Bodies.rectangle(450, 50, 80, 80), ground]);
+        World.add(engine.world , [Bodies.circle(450, 50, 10), ground]);
+console.log(i++);
+        var event = new CustomEvent("mousedown");
+        canvas.dispatchEvent( event );
         // var position = boxB.position;
         // var force = {
         //     x : 0,
